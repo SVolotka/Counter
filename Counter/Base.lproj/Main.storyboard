@@ -1,24 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osf-Tg-JpC">
+                                <rect key="frame" x="30" y="727.66666666666663" width="134.66666666666666" height="60.333333333333371"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.24525119419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-">
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="subtractNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lsz-4y-Nfw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mo6-EJ-E8P">
+                                <rect key="frame" x="207.66666666666663" y="727.66666666666663" width="155.33333333333337" height="60.333333333333371"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mo6-EJ-E8P" secondAttribute="height" multiplier="31:12" id="cA9-oO-QJ4"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.0" blue="0.24525119419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cpt-49-gbd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0g-lJ-W7r">
+                                <rect key="frame" x="313" y="59" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gNG-VH-Dw6"/>
+                                    <constraint firstAttribute="width" constant="50" id="khH-6x-SKM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="🔁"/>
+                                <connections>
+                                    <action selector="resetCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbG-XH-qqh"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="История изменений:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeF-IY-sFc">
+                                <rect key="frame" x="16" y="259" width="361" height="239.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение счётчика: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3R-2w-Bv0">
+                                <rect key="frame" x="16" y="598.66666666666663" width="361" height="69"/>
+                                <color key="backgroundColor" red="0.0" green="0.5" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="T3R-2w-Bv0" secondAttribute="height" multiplier="361:69" id="yO6-gW-rCv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Osf-Tg-JpC" secondAttribute="bottom" constant="30" id="0t8-fU-oEf"/>
+                            <constraint firstItem="mo6-EJ-E8P" firstAttribute="leading" secondItem="Osf-Tg-JpC" secondAttribute="trailing" constant="43" id="4co-Fx-8nz"/>
+                            <constraint firstItem="TeF-IY-sFc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6cT-mW-Ub7"/>
+                            <constraint firstItem="Osf-Tg-JpC" firstAttribute="top" secondItem="T3R-2w-Bv0" secondAttribute="bottom" constant="60" id="6dA-iS-BlG"/>
+                            <constraint firstItem="T3R-2w-Bv0" firstAttribute="top" secondItem="TeF-IY-sFc" secondAttribute="bottom" constant="100" id="7U0-iq-WIw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mo6-EJ-E8P" secondAttribute="trailing" constant="30" id="A0v-ZP-pDQ"/>
+                            <constraint firstItem="T3R-2w-Bv0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ExS-Mc-3Og"/>
+                            <constraint firstItem="mo6-EJ-E8P" firstAttribute="width" secondItem="Osf-Tg-JpC" secondAttribute="width" multiplier="1.15556" id="Ktq-gv-oV2"/>
+                            <constraint firstItem="mo6-EJ-E8P" firstAttribute="centerY" secondItem="Osf-Tg-JpC" secondAttribute="centerY" id="OGn-3p-Scs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TeF-IY-sFc" secondAttribute="trailing" constant="16" id="Oof-95-Tm7"/>
+                            <constraint firstItem="b0g-lJ-W7r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SFW-2Z-Vq8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T3R-2w-Bv0" secondAttribute="trailing" constant="16" id="aLq-4k-0EX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b0g-lJ-W7r" secondAttribute="trailing" constant="30" id="bMa-AE-50D"/>
+                            <constraint firstItem="TeF-IY-sFc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="ccQ-gQ-9pX"/>
+                            <constraint firstItem="mo6-EJ-E8P" firstAttribute="height" secondItem="Osf-Tg-JpC" secondAttribute="height" id="fWY-sv-oEm"/>
+                            <constraint firstItem="TeF-IY-sFc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iWt-4W-jR8"/>
+                            <constraint firstItem="T3R-2w-Bv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="knY-vI-xV5"/>
+                            <constraint firstItem="Osf-Tg-JpC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="szs-qR-ZZc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mo6-EJ-E8P" secondAttribute="bottom" constant="30" id="urd-IR-aOU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addUIButton" destination="mo6-EJ-E8P" id="Ypf-hT-amA"/>
+                        <outlet property="counterUILabel" destination="T3R-2w-Bv0" id="SKk-g0-fXq"/>
+                        <outlet property="historyOfChangesTextView" destination="TeF-IY-sFc" id="gUf-MP-xDK"/>
+                        <outlet property="resetUIButton" destination="b0g-lJ-W7r" id="oAS-3h-pW6"/>
+                        <outlet property="subtractUIButton" destination="Osf-Tg-JpC" id="J6G-UW-bth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="119.84732824427481" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
